@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222;
+}
+
+@keyframes credits {
+    0% {
+    }
+
+    15% {
+        transform: perspective(500px) rotateX(5deg) translateY(20%);
+        opacity: 1;
+    }
+
+    40% {
+        transform: perspective(500px) rotateX(5deg) translateY(-300%);
+        opacity: 0;
+    }
+
+    80% {
+        transform: none;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.content {
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    width: 500px;
+    height: 500px;
+    margin-top: calc(50vh - 250px);
+    margin-left: calc(50vw - 250px);
+    padding: 25px;
+    position: absolute;
+    z-index: 100;
+}
+
+.content.on-hover {
+    animation-name: credits;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+h1 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    text-transform: uppercase;
+    font-size: 50px;
+    margin: 0;
+}
+
+.headshot {
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+
+.headshot:hover {
+    transition: all 0.3s;
+    box-shadow: 0 0 50px 1px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 18px;
+}
+
+p img {
+    height: 30px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+a {
+    color: #007FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 34em) {
+    .content {
+        width: 94vw;
+        height: auto;
+        margin-top: 3vw;
+        margin-left: 3vw;
+    }
+
+    .headshot:hover {
+        transition: all 0.3s;
+        box-shadow: none;
+    }
+}
+
+.easter-egg {
+    overflow: hidden;
+    z-index: 50;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-top: calc(50vh - 150px);
+    margin-left: calc(50vw - 150px);
+}
+
+.easter-egg img {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+}
+
+.easter-egg h3 {
+    color: #fff;
+    font-family: 'Pathway Gothic One', sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
+}
