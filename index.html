@@ -18,6 +18,31 @@
                 background-color: #222;
             }
 
+            @keyframes credits {
+                0% {
+                }
+
+                20% {
+                    transform: perspective(500px) rotateX(5deg);
+                    opacity: 1;
+                }
+
+                50% {
+                    transform: perspective(500px) rotateX(5deg) translateY(-300%);
+                    opacity: 0;
+                }
+
+                60% {
+                    transform: none;
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+
+            }
+
             .content {
                 font-family: 'Roboto Slab', serif;
                 text-align: center;
@@ -31,6 +56,12 @@
                 padding: 25px;
             }
 
+            .content.on-hover {
+                animation-name: credits;
+                animation-duration: 3s;
+                animation-iteration-count: 1;
+            }
+
             h1 {
                 font-family: 'Pathway Gothic One', sans-serif;
                 text-transform: uppercase;
@@ -40,6 +71,13 @@
 
             .headshot {
                 border-radius: 100%;
+                cursor: pointer;
+                transition: all 0.6s;
+            }
+
+            .headshot:hover {
+                transition: all 0.3s;
+                box-shadow: 0 0 50px 1px rgba(0, 0, 0, 0.5);
             }
 
             p {
@@ -68,6 +106,11 @@
                     margin-top: 3vw;
                     margin-left: 3vw;
                 }
+
+                .headshot:hover {
+                    transition: all 0.3s;
+                    box-shadow: none;
+                }
             }
         </style>
     </head>
@@ -95,6 +138,18 @@
             </p>
 
         </div>
+
+        <script type="text/javascript">
+            let content = document.getElementById('content');
+
+            document.getElementById('headshot').addEventListener('click', function(event) {
+                content.classList.add('on-hover');
+
+                setTimeout(function() {
+                    content.classList.remove('on-hover');
+                }, 3000);
+            }, false);
+        </script>
 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
